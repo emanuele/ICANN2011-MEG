@@ -57,10 +57,10 @@ if __name__=='__main__':
             xd2h_test_psd = xd2h_test
 
     # Flatten PSDs or timepoints of all channels in a single vector
-    # for each trial, then do log.
-    samples_day1 = np.log(xd1h_psd.reshape(xd1h_psd.shape[0], xd1h_psd.shape[1]*xd1h_psd.shape[2]))
-    samples_day2 = np.log(xd2h_psd.reshape(xd2h_psd.shape[0], xd2h_psd.shape[1]*xd2h_psd.shape[2]))
-    samples_day2_test = np.log(xd2h_test_psd.reshape(xd2h_test_psd.shape[0], xd2h_test_psd.shape[1]*xd2h_test_psd.shape[2]))
+    # for each trial.
+    samples_day1 = xd1h_psd.reshape(xd1h_psd.shape[0], xd1h_psd.shape[1]*xd1h_psd.shape[2])
+    samples_day2 = xd2h_psd.reshape(xd2h_psd.shape[0], xd2h_psd.shape[1]*xd2h_psd.shape[2])
+    samples_day2_test = xd2h_test_psd.reshape(xd2h_test_psd.shape[0], xd2h_test_psd.shape[1]*xd2h_test_psd.shape[2])
 
     # Normalize data of each day individually before building the final dataset:
     if normalization_single_day:

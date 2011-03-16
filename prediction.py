@@ -14,7 +14,7 @@ if __name__=='__main__':
     noverlap = 0
     halve = True
     PSD = True
-    submission = False
+    submission = True
     normalization_single_day = True
     nfolds_CV = 10
 
@@ -141,7 +141,7 @@ if __name__=='__main__':
         clf.train(dataset)
         y_test_predicted = np.array(clf.predict(samples_test), dtype=np.int)
         print "Predicted class histogram: ", np.histogram(y_test_predicted, bins=[1,2,3,4,5,6])
-        filename = 'class_olivetti'
+        filename = 'class_olivettiDA'
         mdict = {'class_test_day2': y_test_predicted}
         print "Saving predictions to %s.mat/.txt" % filename
         io.savemat(filename+'.mat', mdict)
